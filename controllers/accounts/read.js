@@ -1,10 +1,10 @@
-import Product from "../../models/Product.js";
+import Account from "../../models/Account.js";
 
 export let readAll = async (req, res, next) => {
   try {
-    let all = await Product.find();
+    let all = await Account.find();
     res.status(200).json({
-      products: all,
+      accounts: all,
     });
   } catch (error) {
     console.log(error);
@@ -16,14 +16,14 @@ export let readOne = async (req, res, next) => {
   try {
     const { one } = req.query;
 
-    let product = await Product.findOne({ _id: one });
+    let account = await Account.findOne({ id: one });
 
-    if (!product) {
-      return res.status(404).json({ error: "Product not found" });
+    if (!account) {
+      return res.status(404).json({ error: "Account not found" });
     }
 
     res.status(200).json({
-      product: product,
+      account: account,
     });
   } catch (error) {
     console.log(error);

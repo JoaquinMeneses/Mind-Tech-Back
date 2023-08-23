@@ -2,16 +2,16 @@ import { Schema, model } from "mongoose";
 
 const schema = new Schema(
   {
-    name: {
+    main: {
       type: String,
       required: true,
     },
-    email: {
-      type: String,
+    alters: {
+      type: Array,
       required: true,
     },
-    password: {
-      type: String,
+    puntos: {
+      type: Number,
       required: true,
     },
   },
@@ -20,6 +20,6 @@ const schema = new Schema(
   }
 );
 
-const User = model("User", schema);
+const Account = model("Account", schema);
 
-export default User;
+export default Account;

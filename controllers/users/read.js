@@ -16,7 +16,7 @@ export let readOne = async (req, res, next) => {
   try {
     const { one } = req.query;
 
-    let user = await User.findOne({ email: one });
+    let user = await User.findOne({ id: one });
 
     if (!user) {
       return res.status(404).json({ error: "User not found" });
