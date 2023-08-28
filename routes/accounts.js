@@ -8,7 +8,7 @@ import { addPoints, subPoints } from "../controllers/accounts/update.js";
 router.get("/all", readAll);
 router.get("/one", readOne);
 
-router.get("/add", addPoints);
-router.get("/sub", subPoints);
+router.post("/add", addPoints);
+router.post("/sub", subPoints);
 
 export default router;

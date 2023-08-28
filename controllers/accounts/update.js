@@ -4,7 +4,7 @@ export let addPoints = async (req, res, next) => {
   try {
     const id = req.body._id;
 
-    let account = await Account.findOne({ id: id });
+    let account = await Account.findById({ _id: id });
 
     account.puntos += 1;
     await account.save();
@@ -22,7 +22,7 @@ export let subPoints = async (req, res, next) => {
   try {
     const id = req.body._id;
 
-    let account = await Account.findOne({ id: id });
+    let account = await Account.findById({ _id: id });
 
     account.puntos -= 1;
     await account.save();
