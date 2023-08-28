@@ -2,13 +2,9 @@ import Account from "../../models/Account.js";
 
 export let addPoints = async (req, res, next) => {
   try {
-    const { one } = req.query;
+    const id = req.body._id;
 
-    let account = await Account.findOne({ id: one });
-
-    if (!account) {
-      return res.status(404).json({ error: "Account not found" });
-    }
+    let account = await Account.findOne({ id: id });
 
     account.puntos += 1;
     await account.save();
@@ -24,13 +20,9 @@ export let addPoints = async (req, res, next) => {
 
 export let subPoints = async (req, res, next) => {
   try {
-    const { one } = req.query;
+    const id = req.body._id;
 
-    let account = await Account.findOne({ id: one });
-
-    if (!account) {
-      return res.status(404).json({ error: "Account not found" });
-    }
+    let account = await Account.findOne({ id: id });
 
     account.puntos -= 1;
     await account.save();

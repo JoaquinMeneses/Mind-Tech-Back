@@ -18,10 +18,6 @@ export let readOne = async (req, res, next) => {
 
     let account = await Account.findOne({ id: one });
 
-    if (!account) {
-      return res.status(404).json({ error: "Account not found" });
-    }
-
     res.status(200).json({
       account: account,
     });
